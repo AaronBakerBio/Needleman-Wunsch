@@ -1,0 +1,24 @@
+# README for align.py
+
+This program performs global sequence alignment using the Needleman-Wunsch algorithm. It reads two biological sequences from a FASTA-formatted file provided as standard input and outputs their optimal alignment to standard output.
+
+## Usage
+Run the script from the command line by directing a FASTA file to it and capturing the output:
+python3 align.py < input.fasta > output.txt
+
+If you want to use an IDE or avoid the command line, there's a commented-out `main` method within `align.py`. You can uncomment this method and adjust the file path in the `parse` function call to directly run it with local FASTA files.
+
+## Customization
+To adjust the scoring scheme (match, mismatch, gap penalties), modify the following variables in `align.py`:
+- M = 4  # Match score
+- m = -2 # Mismatch penalty
+- g = -2 # Gap penalty
+
+## Input and Output
+Your input should be a FASTA-formatted file containing exactly two sequences. The program will output the optimal alignment of these sequences according to the specified scoring scheme.
+
+## Testing
+You can test the script with provided `aligntest.input{1,2,3}` files and compare your script's output against the expected `aligntest.output{1,2,3}` files using:
+diff aligntest.output1 my.output1
+
+This ensures the alignment is calculated correctly according to the Needleman-Wunsch algorithm and your specified scoring parameters.
